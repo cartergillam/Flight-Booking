@@ -1,0 +1,87 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0066CC; /* Blue background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the form */
+form {
+    display: flexbox;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 0px;
+    padding: 20px 30px 30px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    height: 500px
+}
+
+.form-row{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Style for heading */
+h2 {
+    text-align: center;
+    font-family: 'Joan', serif;
+    font-size: 2em;
+    margin-bottom: 60px;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 250px; /* Full width minus some padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999;
+}
+
+/* Style for the Register button */
+
+
+input[type="submit"], button:hover {
+    background-color: #555;
+}
+
+/* Styling for the additional text */
+p {
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Login button styling */
+button, input[type="submit"] {
+    background-color: #333;
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px 0;
+    gap: 20px;
+    width: 150px;
+}
+

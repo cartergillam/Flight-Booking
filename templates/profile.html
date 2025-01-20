@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profileStyle.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    <form action="{{ url_for('profile', email=email) }}" method="POST">
+        <h2>Manage Profile</h2>
+        <div class="form-row">
+            <input type="text" name="firstName" placeholder="First Name" value="{{ user['firstName'] }}">
+            <input type="text" name="lastName" placeholder="Last Name" value="{{ user['lastName'] }}">
+        </div>
+        <input type="email" name="email" placeholder="Email" value="{{ email }}">
+        <input type="password" name="password" placeholder="Password" value="{{ user['password'] }}">
+        <input type="password" name="confirmPass" placeholder="Confirm Password" value="{{ user['password'] }}">
+        <div class="form-actions">
+            <button type="submit" name="action" value="Save Changes">Save Changes</button>
+            <button type="submit" name="action" value="Discard Changes">Discard Changes</button>
+        </div>
+        
+        <a href="{{ url_for('booking_history') }}" class="bookings-history-button">Booking History</a>
+        <a href="{{ url_for('clear_bookings') }}" class="clear-bookings-button">Clear Bookings</a>
+
+        {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+        {% endif %}
+    </form>
+</body>
+</html>

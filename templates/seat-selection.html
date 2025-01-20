@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Seat Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='seat-selection.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="seat-map">
+            <div class="trip-toggle">
+                <button id="departureBtn" class="active">Departure</button>
+                <button id="returnBtn">Return</button>
+            </div>
+            <div id="departureSeatGrid" class="seat-grid"></div>
+            <div id="returnSeatGrid" class="seat-grid" style="display: none;"></div>
+        </div>
+        <div class="info-panel">
+            <h1>Flight Information</h1>
+            <div class="passenger-info">
+                <h2>Passenger: <span id="passengerName">{{ user['firstName'] }} {{ user['lastName'] }}</span></h2>
+            </div>
+            <div class="trip-info">
+                <h3>Departure - <span>{{ from_city }} to {{ to_city }}</span></h3>
+                <p>Seat Selection: <span id="departureSeatSelection">Not selected</span></p>
+            </div>
+            <div id="returnInfo" class="trip-info">
+                <h3>Return - <span>{{ to_city }} to {{ from_city}}</span></h3>
+                <p>Seat Selection: <span id="returnSeatSelection">Not selected</span></p>
+            </div>
+            <div class="action-buttons">
+                <button id="back-button">Back</button>
+                <button id="proceed-button">Proceed</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='seat-selection.js') }}"></script>
+</body>
+</html>

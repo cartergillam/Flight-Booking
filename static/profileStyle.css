@@ -1,0 +1,125 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #0004ff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999;
+}
+
+button, .clear-bookings-button {
+    background-color: #0004ff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+}
+
+button, .bookings-history-button {
+    background-color: #0004ff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+}
+
+button:hover, .clear-bookings-button:hover {
+    background-color: #0003a0;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.logout-button, .clear-bookings-button, .bookings-history-button {
+    text-decoration: none;
+    text-align: center;
+}
+
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.clear-bookings-button {
+    display: block;
+    width: 95%;
+    margin-top: 15px auto2;
+    background-color: #ff8c00;
+    text-align: center;
+}
+
+.bookings-history-button {
+    display: block;
+    width: 95%;
+    margin-bottom: 15px;
+    background-color: #0004ff;
+    text-align: center;
+}
+
+.bookings-history-button:hover {
+    background-color: #0003a0;
+}
+
+.logout-button:hover {
+    background-color: #cc0000;
+}
+
+.clear-bookings-button:hover {
+    background-color: #e67e00;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}

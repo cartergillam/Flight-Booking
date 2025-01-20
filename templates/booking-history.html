@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bookingHist.css') }}">
+</head>
+<body>
+    <div class="top-right-buttons">
+        <button onclick="window.location.href='/'">Flight Search</button>
+    </div>
+    <div class="container">
+        <h1>Booking History</h1>
+        <div class="booking-list">
+            {% for booking in bookings %}
+            <div class="booking-card">
+                <div class="card-header">
+                </div>
+                <div class="card-content">
+                    <div class="flight-icon">✈️</div>
+                    <div class="flight-details">
+                        <p><strong>Travel Date:</strong> {{ booking['travel_date'] }}</p>
+                        <p><strong>From:</strong> {{ booking['from_city'] }}</p>
+                        <p><strong>To:</strong> {{ booking['to_city'] }}</p>
+                        <p><strong>Seat:</strong> {{ booking['departureSeat'] }}</p>
+                        {% if booking['trip_type'] == 'round_trip' %}
+                        <p><strong>Return Seat:</strong> {{ booking['returnSeat'] }}</p>
+                        {% endif %}
+                        <p><strong>Boarding:</strong> Terminal 1</p> 
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

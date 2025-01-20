@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='flightSearch.css') }}">
+</head>
+<body>
+    {% if not user%}
+        <div class="top-right-buttons">
+            <button onclick="window.location.href='/login'">Log In</button>
+            <button onclick="window.location.href='/register'">Register</button>
+        </div>
+    {% else %}
+        <div class="top-right-buttons">
+            <button onclick="window.location.href='/logout'">Log Out</button>
+            <button onclick="window.location.href='/profile/{{ email }}'">Manage profile</button>
+        </div>
+    {% endif %}
+    
+
+    <div class="left">
+        {% if user%}
+            <h1>Welcome, {{ user['firstName'] }} {{ user['lastName'] }}</h1>
+        {% else %}
+            <h1>Please sign in to search for Flights</h1>
+        {%endif%}
+    </div>
+
+
+    <div class="container">
+            <!-- Flight type selection form -->
+        <form action="/" method="POST">
+            <label for="flightType">Choose your flight type:</label><br>
+            <span>
+                <input type="radio" id="One-Way" name="flightType" value="one_way" checked>
+                <label for="One-Way">One-Way</label><br>
+            </span>
+            
+            <span>
+                <input type="radio" id="Round-Trip" name="flightType" value="round_trip">
+                <label for="Round-Trip">Round Trip</label><br><br>
+            </span>
+
+            <!-- Input fields for flight details -->
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" required><br><br>
+
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to" required><br><br>
+
+            <input type="submit" value="Search Flights">
+        </form>
+
+
+
+        <div class="flightCard">
+            {% if flight_details %}
+            <h2>Mock Flight Available</h2>
+            <p><strong>Flight Type:</strong> {{ flight_details['flight_type'] }}</p>
+            <p><strong>From:</strong> {{ flight_details['from'] }}</p>
+            <p><strong>To:</strong> {{ flight_details['to'] }}</p>
+            <p><strong>Flight Number:</strong> ABC123</p>
+            <p><strong>Price:</strong> $200</p>
+            <button onclick="window.location.href='/seat-selection'">Select Flight</button>
+            {% endif %}
+        </div>
+
+    </div>
+    
+    
+    
+</body>
+</html>

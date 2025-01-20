@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='regStyle.css') }}">
+</head>
+<body>
+    <form action="/register" method="POST">
+        <h2>Sign Up</h2>
+        <div class="form-row">
+            <input type="text" id="firstName" name="firstName" placeholder="First Name"><br><br>
+
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name"><br><br>
+        </div> 
+
+        <div class="form-row">
+            <input type="email" id="email" name="email" placeholder="Email"><br><br>
+        </div>
+
+        <div class="form-row">
+            <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        </div>
+        
+        <div class="form-row">
+            <input type="password" id="confirmPass" name="confirmPass" placeholder="Confirm Password:"><br><br>
+        </div>
+        
+        <div class="form-row">
+            <input type="submit" value="Register">
+            <a href="{{ url_for('login') }}" class="btn">Already Signed up?</a>
+        </div>
+         
+        <div class="form-row">
+            {% if errorMessage %}
+                <h3>{{ errorMessage }}!</h3>
+            {% endif %}
+        </div>
+
+    </form>
+
+</body>
+</html>
+
